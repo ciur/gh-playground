@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "xumper"
+version = "0.1.0"
+description = "Bumps app version"
+authors = ["Eugen Ciur <eugen@papermerge.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+packaging = "^21.3"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
