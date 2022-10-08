@@ -1,7 +1,7 @@
 [tool.poetry]
-name = "xumper"
+name = "Incrementor"
 version = "0.1.0"
-description = "Bumps app version"
+description = "Increments app version"
 authors = ["Eugen Ciur <eugen@papermerge.com>"]
 readme = "README.md"
 
