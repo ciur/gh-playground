@@ -25,6 +25,7 @@ def set_file_content(file_path: str, content: str) -> None:
 
 def main():
     files_list = os.environ["FILES_LIST"]
+    dry_run = os.environ.get("DRY_RUN", False)
 
     old_version = ""
     new_version = ""
@@ -39,8 +40,15 @@ def main():
         new_content = replace_ver(content, str(new_version))
         set_file_content(file_path, new_content)
 
-    git.add([file_path.strip() for file_path in files_list.split(',')])
-    git.commit(f"Bump version {old_version} to {new_version}")
+    git.add(
+        [file_path.strip() for file_path in files_list.split(',')],
+        dry_run=dry_run
+    )
+    git.commit(
+        f"Bump version {old_version} to {new_version}",
+        dry_run=dry_run
+    )
+    git.push(dry_run=dry_run)
 
 
 if __name__ == "__main__":

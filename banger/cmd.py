@@ -14,8 +14,12 @@ def _try_decode(bytes_: bytes) -> str:
     return bytes_.decode("utf-8")
 
 
-def run(cmd: str) -> Command:
+def run(cmd: str, dry_run=False) -> Command | None :
     print(cmd)
+
+    if dry_run:
+        return
+
     process = subprocess.Popen(
         cmd,
         shell=True,
