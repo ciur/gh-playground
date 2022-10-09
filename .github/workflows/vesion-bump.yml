@@ -6,7 +6,11 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@master
+      - uses: actions/checkout@v3
+        with:
+          ref: ${{ github.head_ref }}
+          fetch-depth: 0
+
       - name: Version bump
         id: version_bump
 
@@ -14,3 +18,14 @@ jobs:
         uses: ciur/gh-playground@master
         with:
           files_list: "pyproject.toml,example-data/version.py"
+
+      - name: Commit files
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git commit -m "Add changes" -a
+
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          force_with_lease: true
