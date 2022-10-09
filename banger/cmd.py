@@ -14,7 +14,7 @@ def _try_decode(bytes_: bytes) -> str:
     return bytes_.decode("utf-8")
 
 
-def run(cmd: str, dry_run=False) -> Command | None :
+def run(cmd: str, dry_run=False):
     print(cmd)
 
     if dry_run:

@@ -1,0 +1,16 @@
+name: Version bump
+
+on: [workflow_dispatch]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - name: Version bump
+        id: version_bump
+
+        # Put your action repo here
+        uses: ciur/gh-playground@master
+        with:
+          files_list: "pyproject.toml,example-data/version.py"

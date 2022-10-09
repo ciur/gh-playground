@@ -93,7 +93,7 @@ Run tests:
 
 Run from command line main module in dry run mode:
 
-     DRY_RUN=1 PYTHONPATH=. FILES_LIST=pyproject.toml,example-data/version.py python ./banger/main.py
+     INPUT_DRY_RUN=1 PYTHONPATH=. INPUT_FILES_LIST=pyproject.toml,example-data/version.py python ./banger/main.py
 
 Above command will look for version in files ``pyproject.toml, example-data/version.py`` and
 increment the patch part of the version and replace new version in ``pyptoject.toml, example-data/version.py``
@@ -101,4 +101,9 @@ files. Dry mode means that the version changes won't be commited.
 
 In order to perfrom commit and push of the version (files) changes, you need to remove DRY_RUN flag:
 
-    PYTHONPATH=. FILES_LIST=pyproject.toml,example-data/version.py python ./banger/main.py
+    PYTHONPATH=. INPUT_FILES_LIST=pyproject.toml,example-data/version.py python ./banger/main.py
+
+
+## References
+
+* [Creating GitHub Actions in Python](https://jacobtomlinson.dev/posts/2019/creating-github-actions-in-python/)

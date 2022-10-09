@@ -24,8 +24,8 @@ def set_file_content(file_path: str, content: str) -> None:
 
 
 def main():
-    files_list = os.environ["FILES_LIST"]
-    dry_run = bool(os.environ.get("DRY_RUN", False))
+    files_list = os.environ["INPUT_FILES_LIST"]
+    dry_run = bool(os.environ.get("INPUT_DRY_RUN", False))
 
     old_version = ""
     new_version = ""
