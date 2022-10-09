@@ -6,7 +6,7 @@ from banger import cmd as command
 
 class Git:
 
-    def __init__(self, dry_run=False):
+    def __init__(self, dry_run: bool = False):
         self.dry_run = dry_run
 
     def add(self, file_list):
