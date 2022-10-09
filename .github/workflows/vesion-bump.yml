@@ -13,4 +13,4 @@ jobs:
         # Put your action repo here
         uses: ciur/gh-playground@master
         with:
-          files_list: "/app/banger/pyproject.toml,/app/banger/example-data/version.py"
+          files_list: "pyproject.toml,example-data/version.py"
