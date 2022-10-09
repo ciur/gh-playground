@@ -15,6 +15,7 @@ def _try_decode(bytes_: bytes) -> str:
 
 
 def run(cmd: str) -> Command:
+    print(cmd)
     process = subprocess.Popen(
         cmd,
         shell=True,
