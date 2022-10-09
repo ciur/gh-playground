@@ -16,6 +16,10 @@ def _try_decode(bytes_: bytes) -> str:
 
 def run(cmd: str, dry_run=False):
     print(cmd)
+    if dry_run:
+        print("dry run mode ON")
+    else:
+        print("dry run mode OFF")
 
     if dry_run:
         return
