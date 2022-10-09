@@ -6,8 +6,6 @@ from banger.utils import (
     replace_ver
 )
 
-from banger.git import Git
-
 
 def get_file_content(file_path: str) -> str:
 
@@ -25,10 +23,6 @@ def set_file_content(file_path: str, content: str) -> None:
 
 def main():
     files_list = os.environ["INPUT_FILES_LIST"]
-    dry_run = bool(os.environ.get("INPUT_DRY_RUN", False))
-
-    old_version = ""
-    new_version = ""
 
     for file_path in files_list.split(','):
         file_path = file_path.strip()
@@ -39,15 +33,6 @@ def main():
 
         new_content = replace_ver(content, str(new_version))
         set_file_content(file_path, new_content)
-
-    git = Git(dry_run=dry_run)
-    git.add(
-        [file_path.strip() for file_path in files_list.split(',')]
-    )
-    git.commit(
-        f"Bump version {old_version} to {new_version}"
-    )
-    git.push()
 
 
 if __name__ == "__main__":
