@@ -83,3 +83,17 @@ steps:
     run: |
     echo "Outputs - ${{ steps.myaction.outputs.myOutput }}"
 ```
+
+
+### Test
+
+Run tests:
+
+    pytest
+
+Run from command line main module:
+
+     PYTHONPATH=. FILES_LIST=pyproject.toml,example-data/version.py python ./banger/main.py
+
+Above command will look for version in files ``pyproject.toml, example-data/version.py`` and
+increment the patch part of the version.

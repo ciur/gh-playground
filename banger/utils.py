@@ -20,6 +20,18 @@ def search_ver(ver: str) -> str:
             return match.group(1)
 
 
+def replace_ver(text, new_ver):
+    ver_patterns = dict([
+        (VERSION_PATTERN_1, f'version = "{new_ver}"\n'),
+        (VERSION_PATTERN_2, f'__version__ = "{new_ver}"\n'),
+    ])
+
+    for pattern, replacement in ver_patterns.items():
+        match = pattern.search(text)
+        if match:
+            return re.sub(pattern, replacement, text)
+
+
 def increment_ver(version: str) -> Version:
 
     if not version:
