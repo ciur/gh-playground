@@ -1,7 +1,7 @@
 FROM python:3.10-slim AS builder
 
 ADD ./banger /app/banger
-ADD ./example_data /app/example-data
+ADD ./example-data /app/example-data
 ADD pyproject.toml /app/banger/
 
 WORKDIR /app
@@ -11,7 +11,7 @@ RUN pip install --target=/app packaging
 
 # A distroless container image with Python and some basics like SSL certificates
 # https://github.com/GoogleContainerTools/distroless
-FROM gcr.io/distroless/python3.10-debian10
+FROM gcr.io/distroless/python3-debian10
 
 COPY --from=builder /app /app
 WORKDIR /app
